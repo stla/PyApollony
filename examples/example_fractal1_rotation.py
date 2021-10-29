@@ -16,7 +16,7 @@ matrices = [rmatrix(alpha) for alpha in np.linspace(0, 2*pi, 181)[:180]]
 ###############################################################################        
 circles = fractal1(5)
 for i, matrix in enumerate(matrices):
-    pngname = "pic%02d.png" % i
+    pngname = "pic%03d.png" % i
     pltr = pv.Plotter(window_size=[512, 512], off_screen=True)
     for circle in circles:
         center, radius = circle
@@ -27,5 +27,5 @@ for i, matrix in enumerate(matrices):
     pltr.show(screenshot=pngname)
     
 os.system(
-    "magick convert -dispose previous -loop 0 -delay 10 pic*.png ApollonianFractal1.gif"    
+    "magick convert -dispose previous -loop 0 -delay 8 pic*.png ApollonianFractal1.gif"    
 )
