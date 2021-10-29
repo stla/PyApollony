@@ -14,6 +14,7 @@ for i, beta in enumerate(beta_):
         sphere = pv.Sphere(radius, center = center + (0,))
         pltr.add_mesh(sphere, smooth_shading=True, color="red", specular=10)
     pltr.set_position((0, 0, 4.5))
+    pltr.set_focus((0, 0, 0))
     pltr.show(screenshot=pngname)
 
 os.system(
