@@ -55,3 +55,23 @@ def fractal2(n, phi, beta):
         list(chain(*l1)) + list(chain(*l2)) 
         + list(chain(*l3)) + list(chain(*l4))
     )
+
+
+def apollony3(c1, c2, c3, n):
+    "Helper function for 'fractal3'"
+    circle = soddyCircle2(c1, c2, c3)
+    if n == 1:
+        return [circle]
+    else:
+        return (
+            apollony3(c1, c2, circle, n-1)
+            + apollony3(c1, circle, c3, n-1)
+            + apollony3(circle, c2, c3, n-1)
+        )
+
+def fractal3(n):
+    c1 = ((1, -1/sqrt(3)), 1)
+    c2 = ((-1, -1/sqrt(3)), 1)
+    c3 = ((0, sqrt(3) - 1/sqrt(3)), 1)
+    l = [apollony1(c1, c2, c3, False, i) for i in range(1, n+1)]
+    return list(chain(*l))
